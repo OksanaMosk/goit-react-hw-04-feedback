@@ -1,0 +1,8 @@
+.statistics {
+  list-style: none;
+  cursor: pointer;
+}
+.statistics > li:hover,
+.statistics > li:focus {
+  color: rgb(200, 203, 226);
+}

@@ -1,0 +1,26 @@
+.feedbackButtons {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.button {
+  text-transform: lowercase;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  color: white;
+  background-color: rgb(102, 135, 173);
+  width: 120px;
+  height: 50px;
+  border: 1px solid rgb(56, 76, 99);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.button:hover,
+.button:focus {
+  background-color: rgb(92, 119, 151);
+  color: rgb(200, 203, 226);
+}
