@@ -7,66 +7,58 @@ import Notification from "./Notification/Notification";
 import { useState } from 'react';
 
 export default function Counter () {
-   const [good, setGood] = useState(0);
+  const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
   
-  const onLeaveFeedbackA = (option) => {
+  const onLeaveFeedback = (option) => {
 
-    switch (option) {
+  switch (option) {
       case 'good':
-     setGood(prevGood = prevGood + 1);
+     setGood(prevGood => prevGood + 1);
       break;
 
   case 'neutral':
-     setNeutral(prevNeutral = prevNeutral + 1);
+     setNeutral(prevNeutral => prevNeutral + 1);
       break;
  
   case 'bad':
-     setBad(prevBad =preveBad + 1);
+     setBad(prevBad => prevBad + 1);
         break;
       
       default:
         return;
     }
-    
-  
   };
 
   
  const countTotalFeedback = () => {
-    
-    const result = good + neutral + bad;
-    return result;
-}
+   const result = good + neutral + bad;
 
- 
-//   onLeaveFeedback = (option) => {
-//     this.setState(state=> ({
-//       [option]: state[option] + 1
-//     }));
-//   }
-  
-
- const countPositiveFeedbackPercentage = () => {
-    const result = countTotalFeedback();
-    const { good } = state;
-    const percent = Math.round(good / result * 100);
-    return percent;
- 
+   return result;
   }
 
  
-    const {option } = state;
-    const total = countTotalFeedback();
+
+
+  const countPositiveFeedbackPercentage = () => {
+
+    const result = countTotalFeedback();
+    const percent = Math.round(good / result * 100);
+
+    return percent;
+  };
+   
+  const total = countTotalFeedback();
     const positivePercentage = countPositiveFeedbackPercentage();
-    const object= Object.keys(state);
+  
     return (
 
-      <div className={css.feedbackEl}>
+      <div className={css.feedback}>
 
         <Section title="Please leave feedback" >
-          <FeedbackOptions options={['good', 'neutral', 'bad'] } onLeaveFeedback={onLeaveFeedback} />
+          <FeedbackOptions options={['good', 'neutral', 'bad']}
+            onLeaveFeedback={onLeaveFeedback} />
         </Section>
 
         {total === 0 ? (
@@ -82,6 +74,5 @@ export default function Counter () {
               positivePercentage={positivePercentage} />
           </Section>)}
       </div>
-    );
-        
-}
+    );     
+};
